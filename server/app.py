@@ -113,9 +113,10 @@ class RecipeIndex(Resource):
         if user_id:
             data = request.json
             
-            # ensuring there is data input
+            # ensuring there is data input with the values
             if 'title' not in data or 'instructions' not in data or 'minutes_to_complete' not in data:
                 return {'message': 'Invalid Recipes'}, 422
+            
             # Creating a new recipe
             new_recipe = Recipe(
                 title=data.get('title'),
